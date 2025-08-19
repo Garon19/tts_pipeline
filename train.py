@@ -150,8 +150,8 @@ class PerceptualLoss(nn.Module):
 
 def train_speecht5(
     metadata="tts_metadata.csv",
-    num_epochs=30,
-    batch_size=16,
+    num_epochs=100,
+    batch_size=8,
     lr=1e-4,
     w_base=1.0,
     w_mse=1.0,
