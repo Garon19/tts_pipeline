@@ -20,7 +20,7 @@ class SpeechT5Dataset(Dataset):
     def __getitem__(self, idx):
         row = self.data.iloc[idx]
 
-        wav_path = row["path"]
+        wav_path = row["path"].replace('\\', '/')
         text = row["text"]
 
         # Загружаем аудио
@@ -150,8 +150,8 @@ class PerceptualLoss(nn.Module):
 
 def train_speecht5(
     metadata="tts_metadata.csv",
-    num_epochs=15,
-    batch_size=4,
+    num_epochs=30,
+    batch_size=16,
     lr=1e-4,
     w_base=1.0,
     w_mse=1.0,
